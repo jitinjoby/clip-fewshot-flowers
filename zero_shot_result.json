@@ -1,0 +1,5 @@
+{
+ "template": "a photo of a {}, a type of flower.",
+ "test_acc": 0.8879736408566722,
+ "test_macro_f1": 0.8495577037412486
+}

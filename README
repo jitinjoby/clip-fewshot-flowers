@@ -1,0 +1,31 @@
+cat > requirements.txt << 'EOF'
+numpy
+scipy
+pillow
+torch
+torchvision
+transformers
+scikit-learn
+matplotlib
+EOF
+
+cat > README.md << 'EOF'
+# When do a few labeled examples improve on CLIP zero-shot classification?
+
+CLIP ViT-B/32 zero-shot vs. a logistic-regression probe on frozen CLIP features,
+on a 20-class subset of Oxford Flowers 102.
+
+## Data
+Download from https://www.robots.ox.ac.uk/~vgg/data/flowers/102/ :
+`102flowers.tgz` (extract to `jpg/`), `imagelabels.mat`, `setid.mat`.
+
+## Run
+    pip install -r requirements.txt
+    python make_subset.py        # builds flowers20/ (seed 42)
+    python extract_features.py   # CLIP features -> features.npz
+    python zero_shot.py          # zero-shot baseline
+    python few_shot.py           # probe at k = 1, 2, 4, 8, 10 -> results.csv, accuracy_vs_k.png
+
+## Environment
+Python 3.10, PyTorch, Transformers, scikit-learn (CPU).
+EOF

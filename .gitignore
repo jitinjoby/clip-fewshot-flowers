@@ -1,0 +1,10 @@
+cd ~/Oxford_flowers
+cat > .gitignore << 'EOF'
+venv/
+__pycache__/
+*.pyc
+jpg/
+flowers20/
+*.mat
+data/
+EOF
